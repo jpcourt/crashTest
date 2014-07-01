@@ -4,7 +4,7 @@ function getJSONFile(){
 	xhr.onreadystatechange = function(aEvt) {
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
-				document.getElementById('renderZone').innerHTML = displayTable(JSON.response);
+				document.getElementById('renderZone').innerHTML = JSON.responseText;
 			}
 		}
 	}
