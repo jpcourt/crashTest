@@ -6,6 +6,6 @@
 
 	$fileContent = read_file($url);
 
-	write_file('http://karradine.fr/crashTest/data/jsonTestFile2.json', $fileContent."LECTURE OK");
+	write_file('data/jsonTestFile2.json', $fileContent."LECTURE OK");
 
 ?>
