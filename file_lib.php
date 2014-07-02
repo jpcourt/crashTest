@@ -14,7 +14,7 @@
 			echo "Erreur dans la lecture du fichier : ".date("Y-m-d")." ".date("H:i:s")." ".curl_error($curl)."<br>";
 			return false;
 		}else{
-			echo 'Lecture OK : '.$rawdata;
+			echo $rawdata;
 			return $rawdata;
 		}
 	}
