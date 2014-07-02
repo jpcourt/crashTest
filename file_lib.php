@@ -23,6 +23,8 @@
 		if(file_exists($filepath)){
 			shell_exec('rm '.$filepath);
 			echo 'Fichier effacé';
+		}else{
+			echo 'pas de fichier existant';
 		}
 		$handle = fopen($filepath,'x');
 		fwrite($handle, $data);
