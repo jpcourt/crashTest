@@ -22,12 +22,7 @@
 	function read_file($filepath){
 		//Lit un fichier présent en local
 		$handle = fopen($filepath,'r');
-		$data;
-		if($handle){
-			while(($buffer = fgets($handle)) !== false){
-				$data .= $buffer;
-			}
-		}		
+		$data = fread($handle, filesize($filepath));
 		fclose($handle);
 		unset($handle);
 		return $data;
