@@ -27,6 +27,7 @@
 		fwrite($fp, $data);
 		fclose($fp);
 		unset($fp);
+		echo "Fichier bien écrit !";
 	}
 
 
