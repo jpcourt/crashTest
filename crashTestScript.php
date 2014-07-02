@@ -2,7 +2,7 @@
 
 	require_once 'file_lib.php';
 
-	$url = './jsonTestFile.json';
+	$url = 'http://karradine.fr/crashTest/jsonTestFile.json';
 
 	$fileContent = read_file($url);
 
