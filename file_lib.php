@@ -10,17 +10,11 @@
 		curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
 		$rawdata = curl_exec($curl);
 
-		if(strlen($rawdata) > 960){
-			if(curl_errno($curl)){
-				echo "Erreur dans la lecture du fichier : ".date("Y-m-d")." ".date("H:i:s")." ".curl_error($curl)."<br>";
-				return false;
-			}else{
-				echo $rawdata;
-				return true;
-			}
-		}else{
-			echo 'Fichier vide';
+		if(curl_errno($curl)){
+			echo "Erreur dans la lecture du fichier : ".date("Y-m-d")." ".date("H:i:s")." ".curl_error($curl)."<br>";
 			return false;
+		}else{
+			return $rawdata;
 		}
 	}
 

@@ -4,14 +4,8 @@
 
 	$url = 'jsonTestFile.json';
 
-	$fileContent = read_file($url)."LECTURE OK";
+	$fileContent = read_file($url);
 
-	$resultWrite = write_file('jsonTestFile2.json', $fileContent);
-
-	if($resultWrite){
-		echo 'LECTURE / ECRITURE OK';
-	}else{
-		echo 'KO KO KO KO KO';
-	}
+	write_file('./jsonTestFile2.json', $fileContent."LECTURE OK");
 
 ?>
