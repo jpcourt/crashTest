@@ -23,7 +23,7 @@
 		//Lit un fichier présent en local
 		$handle = fopen($filepath,'r');
 		if($handle){
-			while(($buffer = fgets($handle)) != = false){
+			while(($buffer = fgets($handle)) !== false){
 				$data .= $buffer;
 			}
 		}		
