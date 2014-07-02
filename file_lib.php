@@ -20,17 +20,17 @@
 	}
 
 	function write_file($filepath, $data){
-		if(file_exists($filepath)){
+		/*if(file_exists($filepath)){
 			shell_exec('rm '.$filepath);
 			echo 'Fichier effacé';
 		}else{
 			echo 'pas de fichier existant '.$filepath;
-		}
-		$handle = fopen($filepath,'x');
-		fwrite($handle, $data);
+		}*/
+		$handle = fopen($filepath,'w+');
+		$res = fwrite($handle, $data);
 		fclose($handle);
 		unset($handle);
-		echo "Fichier bien écrit !";
+		echo "Ecriture : ".$res;
 	}
 
 
