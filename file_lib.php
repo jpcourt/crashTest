@@ -22,11 +22,12 @@
 	function write_file($filepath, $data){
 		if(file_exists($filepath)){
 			shell_exec('rm '.$filepath);
+			echo 'Fichier effacé';
 		}
-		$fp = fopen($filepath,'x');
-		fwrite($fp, $data);
-		fclose($fp);
-		unset($fp);
+		$handle = fopen($filepath,'x');
+		fwrite($handle, $data);
+		fclose($handle);
+		unset($handle);
 		echo "Fichier bien écrit !";
 	}
 
