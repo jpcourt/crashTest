@@ -33,5 +33,12 @@
 		echo "Ecriture : ".$res;
 	}
 
+	function append_file($filepath, $data){
+		$handle = fopen($filepath,'a+');
+		$res = fwrite($handle, $data);
+		fclose($handle);
+		unset($handle);
+		echo "Ajout : ".$res;	
+	}
 
 ?>
