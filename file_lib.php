@@ -1,7 +1,7 @@
 <?php
 
-	function read_file($path){
-
+	function access_file($path){
+		//Récupère un contenu sur le réseau
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $path);
 		curl_setopt($curl, CURLOPT_HEADER, 0);
@@ -11,34 +11,43 @@
 		$rawdata = curl_exec($curl);
 
 		if(curl_errno($curl)){
-			echo "Erreur dans la lecture du fichier : ".date("Y-m-d")." ".date("H:i:s")." ".curl_error($curl)."<br>";
+			echo "Erreur dans la lecture du fichier : ".date("Y-m-d")." ".date("H:i:s")." ".curl_error($curl)."\r\n";
 			return false;
 		}else{
-			echo $rawdata;
+			echo $rawdata."\r\n";
 			return $rawdata;
 		}
 	}
 
+	function read_file($filepath){
+		//Lit un fichier présent en local
+		$handle = fopen($filepath,'r');
+		if($handle){
+			while(($buffer = fgets($handle)) != = false){
+				$data .= $buffer;
+			}
+		}		
+		fclose($handle);
+		unset($handle);
+		return $data;
+	}
+
 	function write_file($filepath, $data){
-		/*if(file_exists($filepath)){
-			shell_exec('rm '.$filepath);
-			echo 'Fichier effacé';
-		}else{
-			echo 'pas de fichier existant '.$filepath;
-		}*/
+		//crée ou modifie un fichier ; le contenu du fichier devient le contenu en entrée $data 
 		$handle = fopen($filepath,'w+');
 		$res = fwrite($handle, $data);
 		fclose($handle);
 		unset($handle);
-		echo "Ecriture : ".$res;
+		echo "Ecriture : ".$res."\r\n";
 	}
 
 	function append_file($filepath, $data){
+		//ajoute à un fichier existant le contenu $data ; si le fichier n'existe pas, le crée
 		$handle = fopen($filepath,'a+');
 		$res = fwrite($handle, $data);
 		fclose($handle);
 		unset($handle);
-		echo "Ajout : ".$res;	
+		echo "Ajout : ".$res."\r\n";
 	}
 
 ?>
