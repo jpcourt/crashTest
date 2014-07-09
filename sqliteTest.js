@@ -5,7 +5,7 @@ function callSqliteTest(){
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
 				console.log(xhr.response);
-				document.getElementById('body').innerHTML = xhr.response;
+				document.getElementById('test').innerHTML = xhr.response;
 			}
 		}
 	}
