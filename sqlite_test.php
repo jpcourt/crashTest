@@ -6,6 +6,8 @@ $db = new dBase('config.sqlite', './data');
 
 $query = 'SELECT * FROM config';
 
+echo "Debut du test\r\n";
+
 $result = sql_query($db, $query);
 
 if(is_array($result){
@@ -13,5 +15,7 @@ if(is_array($result){
 }else{
 	echo $result;
 }
+
+echo "\r\nFin du test";
 
 ?>
