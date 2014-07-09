@@ -9,7 +9,7 @@ $db = new dBase($db_name.'.sqlite', './data');
 
 $q = $db->exec('CREATE TABLE IF NOT EXISTS table1 (key1 INT, key2 INT, key3 INT, PRIMARY KEY (key1)');
 
-for($i = 0; i < $size; i++){
+for($i = 0; $i < $size; $i++){
 	$q = $db->exec('INSERT INTO table1 (key1, key2, key3) VALUES ('.$i.', '.$i.', '.$i.')');
 }
 
