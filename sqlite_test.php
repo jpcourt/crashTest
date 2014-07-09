@@ -10,7 +10,7 @@ echo "Debut du test\r\n";
 
 $result = sql_query($db, $query);
 
-if(is_array($result){
+if(is_array($result)){
 	print_r($result);
 }else{
 	echo $result;
